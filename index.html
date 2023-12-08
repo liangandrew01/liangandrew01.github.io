@@ -18,23 +18,29 @@
       frameRate(30);
         
       // Paste code from Khan Academy here:
-      fill(247, 124, 0);
-      rect(100,100,25,25);
-      
-      var drawRange = function() {
-          var incAmount = 0.01;
-          //println(incAmount*width);
-      
-      for (var x = 0; x < 4; x +=0.01) {
-          var n = noise(x);
-          var y = map(n, 0, 1, 0, height/2);
-          println("n: " + n + ", y: " + y); // print the values of n and y
-          fill(247, 124, 0);
-          rect(x*100, height-y, 1, y);
-      }
-      };
-      
-      drawRange();
+var draw = function() { //top button
+    if (mouseIsPressed && mouseX > 100 && mouseX < 200 && mouseY> 50 && mouseY < 150){
+    fill(0, 0, 0);
+    } else {
+        fill(255, 255, 255);
+    }
+    text("You pressed it!",101,100);
+    noFill();
+    rect(100,50,100,100);
+};
+
+//bottom button
+rect(100, 200, 100, 100); 
+
+mousePressed = function() {
+    if (mouseX > 100 && mouseX < 200 && mouseY > 200 && mouseY < 300) {
+    fill(255, 0, 0);
+    text("You pressed it!", 105, 250);
+    } else {
+        fill(255, 255, 255);
+        rect(100, 200, 100, 100); 
+    }
+};
 
   // Get the canvas that ProcessingJS will use
   var canvas = document.getElementById("mycanvas"); 
